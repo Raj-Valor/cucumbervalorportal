@@ -10,6 +10,8 @@ public class HomePage {
     
 	private By userMgtclick = By.xpath("//span[contains(text(),'User Management')]");
 	private By MerMgtclick = By.xpath("//span[contains(text(),'Merchant Management')]");
+	private By transclick = By.xpath("//span[contains(text(),'Transactions')]");
+	
 	    
 	    public HomePage(WebDriver driver) {
 	        this.driver = driver;
@@ -37,6 +39,11 @@ public class HomePage {
 	    
 	   }
 	    
+	    public TransactionsPage tclick() throws InterruptedException {
+	    	Thread.sleep(3000);
+	        driver.findElement(transclick).click();
+	        return new TransactionsPage(driver);
 	    
+	    }
 	}
 

@@ -145,7 +145,7 @@ public class MerchantManagementPage {
 		//action.sendKeys(Keys.ENTER);
 		//action.sendKeys(Keys.ENTER);
 		
-		
+	
 	
 		
 		
@@ -214,7 +214,7 @@ public class MerchantManagementPage {
 		driver.findElement(addnoDevice).click();
 		driver.findElement(boardmer).click();
 	
-		
+	
 		
 		
 		
