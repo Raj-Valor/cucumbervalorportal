@@ -1,7 +1,11 @@
 package com.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class UserManagementPage {
 
@@ -45,7 +49,9 @@ public class UserManagementPage {
 	private By SubIsocountbottom  = By.xpath("//p[@class='MuiTypography-root MuiTablePagination-caption MuiTypography-body2 MuiTypography-colorInherit'][2]");
 	private By Merchantcountbottom = By.xpath("//p[@class='MuiTypography-root MuiTablePagination-caption MuiTypography-body2 MuiTypography-colorInherit'][2]");
 	private By Internaluserbottom = By.xpath("//p[@class='MuiTypography-root MuiTablePagination-caption MuiTypography-body2 MuiTypography-colorInherit'][2]");
-	
+	private By viewOffice = By.xpath("//span[contains(text(),'Show Office')]");
+	private By state = By.xpath("//div[@class=' css-1hwfws3']");
+	private By mulState = By.xpath("(//div[contains(@class,'css-26l3qy-menu')])[1]");
 	public UserManagementPage(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -110,13 +116,9 @@ public class UserManagementPage {
 		driver.findElement(lastName).sendKeys(lastname);
 		driver.findElement(address).sendKeys(add);
 		driver.findElement(zipCode).sendKeys(zip);
-		driver.findElement(city).sendKeys(cit);
-		/*
-		 * Select select = new Select(driver.findElement(state));
-		 * select.selectByValue("XX - India");
-		 */
-
+		driver.findElement(city).sendKeys(cit);	
 	}
+	
 
 	public void clickNextButton() {
 		driver.findElement(nextBtn).click();
@@ -149,5 +151,7 @@ public void selectallmodule() {
 	driver.findElement(selectmodule).click();
 	driver.findElement(submitbutton).click();
 }
-
+/*public void veriftOfficeHierarchy() { 
+	driver.findElement(viewOffice).click();
+}*/
 }

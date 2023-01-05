@@ -67,7 +67,7 @@ public class MerchantManagementPage {
 	//ul[@role="listbox"]
 	
 	
-	
+
 	
 	public MerchantManagementPage(WebDriver driver) {
 		this.driver = driver;

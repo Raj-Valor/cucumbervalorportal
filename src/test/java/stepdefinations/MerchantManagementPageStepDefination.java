@@ -95,7 +95,6 @@ public void user_select_the_store_from_sheet_and_rownumber(String SheetName, Int
 	
 	
 	
-
 	merchntmanagementpage.stroecode(mcc);
 
 }

@@ -11,6 +11,7 @@ public class HomePage {
 	private By userMgtclick = By.xpath("//span[contains(text(),'User Management')]");
 	private By MerMgtclick = By.xpath("//span[contains(text(),'Merchant Management')]");
 	private By transclick = By.xpath("//span[contains(text(),'Transactions')]");
+	private By vt = By.xpath("//span[contains(text(),'Virtual Terminal')]");
 	
 	    
 	    public HomePage(WebDriver driver) {
@@ -44,6 +45,12 @@ public class HomePage {
 	        driver.findElement(transclick).click();
 	        return new TransactionsPage(driver);
 	    
+	    }
+	    
+	    public vtPage vclick() throws InterruptedException {
+	    	Thread.sleep(3000);
+	    	driver.findElement(vt).click();
+	    	return new vtPage(driver);
 	    }
 	}
 

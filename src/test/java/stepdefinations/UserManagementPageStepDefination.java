@@ -37,7 +37,7 @@ public class UserManagementPageStepDefination {
 	
 	
 	@When("user click the next button")
-	public void user_click_the_next_button() {
+	public void user_click_the_next_button() throws InterruptedException {
 		usermanagementPage.clickNextButton();
 	    
 	}
@@ -118,13 +118,13 @@ public void user_files_the_details_from_given_sheetname_and_rownumber(String She
 	
 
 	@When("User clicks the next button")
-	public void user_clicks_the_next_button() {
+	public void user_clicks_the_next_button() throws InterruptedException {
 		usermanagementPage.clickNextButton();
 	}
 	
 
 @When("user files the processor details from given sheetname {string} and rownumber {int}")
-public void user_files_the_processor_details_from_given_sheetname_and_rownumber(String SheetName, Integer rowNumber) throws InvalidFormatException, IOException {
+public void user_files_the_processor_details_from_given_sheetname_and_rownumber(String SheetName, Integer rowNumber) throws InvalidFormatException, IOException, InterruptedException {
 	 ExcelReader reader = new ExcelReader();
 	 List<Map<String,String>> testData=
 			 reader.getData("C:\\Users\\rajkumar\\Desktop\\vj.xlsx", SheetName);

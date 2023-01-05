@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Grasshopper Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Dec 21, 2022 12:23:21 PM</span></a>
+<a href="#"><span class="badge badge-primary">Jan 5, 2023 10:36:45 AM</span></a>
 </li>
 </ul>
 </div>
@@ -52,9 +52,9 @@
 <span class="ico"><i class="fa fa-list"></i></span>
 </a>
 </li>
-<li class="nav-item dropdown" onclick="toggleView('exception-view')">
-<a id="nav-exception" class="dropdown-toggle" href="#">
-<span class="ico"><i class="fa fa-bug"></i></span>
+<li class="nav-item dropdown" onclick="toggleView('category-view')">
+<a id="nav-category" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-tag"></i></span>
 </a>
 </li>
 </ul>
@@ -66,25 +66,25 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Dec 21, 2022 12:23:21 PM</h3>
+<h3>Jan 5, 2023 10:36:45 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Dec 21, 2022 12:25:22 PM</h3>
+<h3>Jan 5, 2023 10:37:18 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Features Passed</p>
-<h3>2</h3>
+<h3>1</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Features Failed</p>
-<h3>3</h3>
+<h3>0</h3>
 </div></div>
 </div>
 </div>
@@ -100,12 +100,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='40%'>
-<b>2</b> features passed
+<div><small data-tooltip='100%'>
+<b>1</b> features passed
 </small>
 </div>
 <div>
-<small data-tooltip='60%'><b>3</b> features failed,
+<small data-tooltip='0%'><b>0</b> features failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -123,9 +123,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='50%'><b>3</b> scenarios passed</small></div>
+<div><small data-tooltip='100%'><b>1</b> scenarios passed</small></div>
 <div>
-<small data-tooltip='50%'><b>3</b> scenarios failed,
+<small data-tooltip='0%'><b>0</b> scenarios failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -143,10 +143,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='54%'><b>23</b> steps passed</small></div>
+<div><small data-tooltip='100%'><b>8</b> steps passed</small></div>
 <div>
-<small data-tooltip='7%'><b>3</b> steps failed,
-<b>16</b> skipped, <b data-tooltip='%'>0</b> others
+<small data-tooltip='0%'><b>0</b> steps failed,
+<b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
 </div>
@@ -162,10 +162,27 @@
 </div></div>
 <script>
 var timeline = {
-"Portal HomePage Feature":17.681,"Portal Login Feature":11.281,"Boarding the Merchant Feature":11.262,"Transactions feature for portal":18.753,"Boarding the ISO Feature":60.037
+"Boarding the ISO Feature":31.5
 };
 </script>
 <div class="row">
+<div class="col-lg-6 col-md-12 category-container">
+<div class="card">
+<div class="card-header"><p>Tags</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
+<tr>
+<td>@sanityTest</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
 <div class="col-lg-6 col-md-12 sysenv-container">
 <div class="card">
 <div class="card-header"><p>System/Environment</p></div>
@@ -197,21 +214,21 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 2,
-failParent: 3,
+passParent: 1,
+failParent: 0,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 3,
-failChild: 3,
+passChild: 1,
+failChild: 0,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 23,
-failGrandChild: 3,
+passGrandChild: 8,
+failGrandChild: 0,
 warningGrandChild: 0,
-skipGrandChild: 16,
+skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
 };
@@ -226,9 +243,14 @@ eventsCount: 5,
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
-<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
+<ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" href="#">@sanityTest</a>
 </ul>
 </li>
 </ul>
@@ -239,9 +261,9 @@ eventsCount: 5,
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Portal HomePage Feature</p>
+            <p class="name">Boarding the ISO Feature</p>
             <p class="text-sm">
-              <span>12:23:23 PM</span> / <span>00:00:17:681</span>
+              <span>10:36:47 AM</span> / <span>00:00:31:500</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -249,10 +271,10 @@ eventsCount: 5,
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Portal HomePage Feature</h5>
-<span class='badge badge-success'>12.21.2022 12:23:23</span>
-<span class='badge badge-danger'>12.21.2022 12:23:40</span>
-<span class='badge badge-default'>00:00:17:681</span>
+<h5 class="test-status text-pass">Boarding the ISO Feature</h5>
+<span class='badge badge-success'>01.05.2023 10:36:47</span>
+<span class='badge badge-danger'>01.05.2023 10:37:18</span>
+<span class='badge badge-default'>00:00:31:500</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 </div>
 <div class="m-t-10 m-l-5"></div>
@@ -262,445 +284,17 @@ eventsCount: 5,
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>user logged in to Home page</div>
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Boarding iso with different set of data</div>
       </div>
     </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="stepdefinations.HomePageStepDefination.user_has_already_logged_in_to_application(io.cucumber.datatable.DataTable)">
-                <span>Given user has already logged in to application</span>
-      <div><table class='markup-table table '><tr><td>username</td><td>password</td></tr><tr><td>rajkumar+demoadmin@valorpaytech.com</td><td>Aadhvik@19</td></tr></table>
-      </div>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinations.HomePageStepDefination.user_is_on_home_page()">
-                <span>When user is on Home Page</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinations.HomePageStepDefination.user_clicks_usermanagement_button()">
-                <span>When user clicks user button</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-</div>
-          </div>
-        </li>
-        <li class="test-item"  status="pass" test-id="9"
-          author=""
-          tag=""
-          device="">
-          <div class="test-detail">
-            <p class="name">Portal Login Feature</p>
-            <p class="text-sm">
-              <span>12:23:40 PM</span> / <span>00:00:11:281</span>
-              <span class="badge pass-bg log float-right">Pass</span>
-            </p>
-          </div>
-          <div class="test-contents d-none">
-<div class="detail-head">
-<div class="p-v-10">
-<div class="info">
-<h5 class="test-status text-pass">Portal Login Feature</h5>
-<span class='badge badge-success'>12.21.2022 12:23:40</span>
-<span class='badge badge-danger'>12.21.2022 12:23:52</span>
-<span class='badge badge-default'>00:00:11:281</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=9</span>
-</div>
-<div class="m-t-10 m-l-5"></div>
-</div>
-</div>
-<div class="accordion mt-4">
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="10"><span class="badge log pass-bg mr-2">Pass</span>Login withcorrect credentials</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="stepdefinations.LoginStepDefination.user_is_on_loginpage()">
-                <span>Given user is on loginpage</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinations.LoginStepDefination.user_enters_username(java.lang.String)">
-                <span>When user enters username "rajkumar+demoadmin@valorpaytech.com"</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinations.LoginStepDefination.user_enters_password(java.lang.String)">
-                <span>And user enters password "Aadhvik@19"</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinations.LoginStepDefination.user_clicks_on_continue_button()">
-                <span>When user clicks on continue button</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinations.LoginStepDefination.user_clicks_on_login_button()">
-                <span>When user clicks on login button</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-</div>
-          </div>
-        </li>
-        <li class="test-item"  status="fail" test-id="19"
-          author=""
-          tag=""
-          device="">
-          <div class="test-detail">
-            <p class="name">Boarding the Merchant Feature</p>
-            <p class="text-sm">
-              <span>12:23:52 PM</span> / <span>00:00:11:262</span>
-              <span class="badge fail-bg log float-right">Fail</span>
-            </p>
-          </div>
-          <div class="test-contents d-none">
-<div class="detail-head">
-<div class="p-v-10">
-<div class="info">
-<h5 class="test-status text-fail">Boarding the Merchant Feature</h5>
-<span class='badge badge-success'>12.21.2022 12:23:52</span>
-<span class='badge badge-danger'>12.21.2022 12:24:03</span>
-<span class='badge badge-default'>00:00:11:262</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=19</span>
-</div>
-<div class="m-t-10 m-l-5"></div>
-</div>
-</div>
-<div class="accordion mt-4">
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="20"><span class="badge log fail-bg mr-2">Fail</span>Boarding merchant with different set of data</div>
-          <div class="status-avatar float-right mr-4">
-            <i class="fa fa-paperclip"></i>
-          </div>
-      </div>
-    </div>
-        <div class="scenario_outline ">
+        <div class="scenario_outline collapse">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="21"><span class="badge log fail-bg mr-2">Fail</span>Boarding merchant with different set of data</div>
-                    <div class="status-avatar float-right">
-                      <i class="fa fa-paperclip"></i>
-                    </div>
+                  <div class="node" id="3"><span class="badge log pass-bg mr-2">Pass</span>Boarding iso with different set of data</div>
                 </div>
               </div>
-              <div class="card-body mt-3 ">
-                  <div class="step fail-bg">
-                    <span>Given user is on MerchantManagementPage</span>
-      <div><table class='markup-table table '><tr><td>username</td><td>password</td></tr><tr><td>rajkumar+a2biso@valorpaytech.com</td><td>Aadhvik@19</td></tr></table>
-      </div>
-      <div>
-        <textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//span[contains(text(),'YES')]"}
-  (Session info: chrome=108.0.5359.125)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'VAOR-VP-303', ip: '192.168.2.61', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '19'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.125, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\rajkumar\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59979}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: fb6fb4518098b5896feed2defb9dfa34
-*** Element info: {Using=xpath, value=//span[contains(text(),'YES')]}
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at com.pages.LoginPage.doLogin(LoginPage.java:50)
-	at stepdefinations.MerchantManagementPageStepDefination.user_is_on_merchant_management_page(MerchantManagementPageStepDefination.java:37)
-	at ✽.user is on MerchantManagementPage(file:///C:/Users/rajkumar/eclipse-workspace/FlamingoBDDFramwork/src/test/resources/AppFeatures/MerchantManagement.feature:4)
-</textarea>
-      
-      </div>
-                  </div>
-                  <div class="step skip-bg">
-                    <span>When user clicks add button for merchant</span>
-      <div>Step skipped
-      </div>
-                  </div>
-                  <div class="step skip-bg">
-                    <span>When user clicks the Full Board Option for mechant</span>
-      <div>Step skipped
-      </div>
-                  </div>
-                  <div class="step skip-bg">
-                    <span>When user fil the merchan details from given sheetname "info" and rownumber 0</span>
-      <div>Step skipped
-      </div>
-                  </div>
-                  <div class="step skip-bg">
-                    <span>When user select state</span>
-      <div>Step skipped
-      </div>
-                  </div>
-                  <div class="step skip-bg">
-                    <span>And click the next</span>
-      <div>Step skipped
-      </div>
-                  </div>
-                  <div class="step skip-bg">
-                    <span>When user select the store from sheet "info" and rownumber 0</span>
-      <div>Step skipped
-      </div>
-                  </div>
-                  <div class="step skip-bg">
-                    <span>And click addstore</span>
-      <div>Step skipped
-      </div>
-                  </div>
-                  <div class="step skip-bg">
-                    <span>When user select the device from the list</span>
-      <div>Step skipped
-      </div>
-                  </div>
-                  <div class="step skip-bg">
-                    <span>When user select the processor</span>
-      <div>Step skipped
-      </div>
-                  </div>
-                  <div class="step skip-bg">
-                    <span>When add debitshare</span>
-      <div>Step skipped
-      </div>
-                  </div>
-                  <div class="step skip-bg">
-                    <span>When user fil the cash discount values from the sheetname "info" and rownumber 0</span>
-      <div>Step skipped
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>AppHooks.ApplicationHooks.tearDown(io.cucumber.java.Scenario)</span>
-      <div>Boarding_merchant_with_different_set_of_data
-          <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='../embedded1.png' src="../embedded1.png">
-    
-    </div></div>
-</div>
-      <div>
-      </div>
-                  </div>
-              </div>
-            </div>
-        </div>
-  </div>
-</div>
-          </div>
-        </li>
-        <li class="test-item"  status="fail" test-id="37"
-          author=""
-          tag=""
-          device="">
-          <div class="test-detail">
-            <p class="name">Transactions feature for portal</p>
-            <p class="text-sm">
-              <span>12:24:03 PM</span> / <span>00:00:18:753</span>
-              <span class="badge fail-bg log float-right">Fail</span>
-            </p>
-          </div>
-          <div class="test-contents d-none">
-<div class="detail-head">
-<div class="p-v-10">
-<div class="info">
-<h5 class="test-status text-fail">Transactions feature for portal</h5>
-<span class='badge badge-success'>12.21.2022 12:24:03</span>
-<span class='badge badge-danger'>12.21.2022 12:24:22</span>
-<span class='badge badge-default'>00:00:18:753</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=37</span>
-</div>
-<div class="m-t-10 m-l-5"></div>
-</div>
-</div>
-<div class="accordion mt-4">
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="38"><span class="badge log fail-bg mr-2">Fail</span>to verify the transactions details from the portal</div>
-          <div class="status-avatar float-right mr-4">
-            <i class="fa fa-paperclip"></i>
-          </div>
-      </div>
-    </div>
-        <div class="">
-          <div class="card-body">
-              <div class="step pass-bg" title="stepdefinations.TransactionsPageStepDefination.user_is_on_transactions_page(io.cucumber.datatable.DataTable)">
-                <span>Given user is on TransactionsPage</span>
-      <div><table class='markup-table table '><tr><td>username</td><td>password</td></tr><tr><td>rajkumar+demoadmin@valorpaytech.com</td><td>Aadhvik@19</td></tr></table>
-      </div>
-      <div>
-      </div>
-              </div>
-              <div class="step fail-bg" title="stepdefinations.TransactionsPageStepDefination.user_check_the_today_s_transactions()">
-                <span>When User check the today's transactions</span>
-      <div>
-        <textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//span[contains(text(),'Recent')]"}
-  (Session info: chrome=108.0.5359.125)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'VAOR-VP-303', ip: '192.168.2.61', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '19'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.125, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\rajkumar\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60041}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 3a2ea140549a89a929e159e544c87017
-*** Element info: {Using=xpath, value=//span[contains(text(),'Recent')]}
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at com.pages.TransactionsPage.transactionsfilterclick(TransactionsPage.java:32)
-	at stepdefinations.TransactionsPageStepDefination.user_check_the_today_s_transactions(TransactionsPageStepDefination.java:34)
-	at ✽.User check the today's transactions(file:///C:/Users/rajkumar/eclipse-workspace/FlamingoBDDFramwork/src/test/resources/AppFeatures/Transactions.feature:11)
-</textarea>
-      
-      </div>
-              </div>
-              <div class="step skip-bg" title="stepdefinations.TransactionsPageStepDefination.user_check_transaction_with_multpleoptions()">
-                <span>When User check transaction with multpleoptions</span>
-      <div>Step skipped
-      </div>
-              </div>
-              <div class="step skip-bg" title="stepdefinations.TransactionsPageStepDefination.user_performs_the_export_on_transactions()">
-                <span>When User performs the export on transactions</span>
-      <div>Step skipped
-      </div>
-              </div>
-              <div class="step pass-bg" title="AFTER">
-                <span>AppHooks.ApplicationHooks.tearDown(io.cucumber.java.Scenario)</span>
-      <div>to_verify_the_transactions_details_from_the_portal
-          <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='../embedded2.png' src="../embedded2.png">
-    
-    </div></div>
-</div>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-</div>
-          </div>
-        </li>
-        <li class="test-item"  status="fail" test-id="46"
-          author=""
-          tag=""
-          device="">
-          <div class="test-detail">
-            <p class="name">Boarding the ISO Feature</p>
-            <p class="text-sm">
-              <span>12:24:22 PM</span> / <span>00:01:00:037</span>
-              <span class="badge fail-bg log float-right">Fail</span>
-            </p>
-          </div>
-          <div class="test-contents d-none">
-<div class="detail-head">
-<div class="p-v-10">
-<div class="info">
-<h5 class="test-status text-fail">Boarding the ISO Feature</h5>
-<span class='badge badge-success'>12.21.2022 12:24:22</span>
-<span class='badge badge-danger'>12.21.2022 12:25:22</span>
-<span class='badge badge-default'>00:01:00:037</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=46</span>
-</div>
-<div class="m-t-10 m-l-5"></div>
-</div>
-</div>
-<div class="accordion mt-4">
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="47"><span class="badge log pass-bg mr-2">Pass</span>to verify the total users count</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="stepdefinations.UserManagementPageStepDefination.user_is_on_user_management_page(io.cucumber.datatable.DataTable)">
-                <span>Given user is on UserManagementPage</span>
-      <div><table class='markup-table table '><tr><td>username</td><td>password</td></tr><tr><td>rajkumar+demoadmin@valorpaytech.com</td><td>Aadhvik@19</td></tr></table>
-      </div>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinations.UserManagementPageStepDefination.user_clicks_users_tile()">
-                <span>When User clicks users tile</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinations.UserManagementPageStepDefination.user_clicks_iso_tile()">
-                <span>When User clicks Iso tile</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinations.UserManagementPageStepDefination.user_clicks_sub_iso_tile()">
-                <span>When User clicks Sub Iso tile</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinations.UserManagementPageStepDefination.user_clicks_merchants_tile()">
-                <span>When User clicks Merchants tile</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinations.UserManagementPageStepDefination.user_clicks_operators_tile()">
-                <span>When User clicks Operators tile</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinations.UserManagementPageStepDefination.user_clicks_internal_user_tile()">
-                <span>When User clicks Internal User tile</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="58"><span class="badge log fail-bg mr-2">Fail</span>Boarding iso with different set of data</div>
-          <div class="status-avatar float-right mr-4">
-            <i class="fa fa-paperclip"></i>
-          </div>
-      </div>
-    </div>
-        <div class="scenario_outline ">
-            <div class="card-body l1">
-              <div class="card-header">
-                <div class="card-title outline-child">
-                  <div class="node" id="59"><span class="badge log fail-bg mr-2">Fail</span>Boarding iso with different set of data</div>
-                    <div class="status-avatar float-right">
-                      <i class="fa fa-paperclip"></i>
-                    </div>
-                </div>
-              </div>
-              <div class="card-body mt-3 ">
+              <div class="card-body mt-3 collapse">
                   <div class="step pass-bg">
                     <span>Given user is on UserManagementPage</span>
       <div><table class='markup-table table '><tr><td>username</td><td>password</td></tr><tr><td>rajkumar+demoadmin@valorpaytech.com</td><td>Aadhvik@19</td></tr></table>
@@ -723,57 +317,23 @@ Session ID: 3a2ea140549a89a929e159e544c87017
       <div>
       </div>
                   </div>
-                  <div class="step fail-bg">
+                  <div class="step pass-bg">
                     <span>And User clicks the next button</span>
       <div>
-        <textarea disabled class="code-block">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span>...</span> is not clickable at point (1076, 896). Other element would receive the click: <div class="stepper-control-buttons text-center" style="margin-bottom: 11px; margin-top: 20px; width: 100%;">...</div>
-  (Session info: chrome=108.0.5359.125)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'VAOR-VP-303', ip: '192.168.2.61', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '19'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.125, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\rajkumar\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60211}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: a380f329cf147b1568e4ef3a0cf354ab
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-	at com.pages.UserManagementPage.clickNextButton(UserManagementPage.java:122)
-	at stepdefinations.UserManagementPageStepDefination.user_clicks_the_next_button(UserManagementPageStepDefination.java:122)
-	at ✽.User clicks the next button(file:///C:/Users/rajkumar/eclipse-workspace/FlamingoBDDFramwork/src/test/resources/AppFeatures/UserManagement.feature:21)
-</textarea>
-      
-      </div>
-                  </div>
-                  <div class="step skip-bg">
-                    <span>When user files the processor details from given sheetname "rj" and rownumber 0</span>
-      <div>Step skipped
-      </div>
-                  </div>
-                  <div class="step skip-bg">
-                    <span>And user click the next button</span>
-      <div>Step skipped
-      </div>
-                  </div>
-                  <div class="step skip-bg">
-                    <span>When user select all the modules</span>
-      <div>Step skipped
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>AppHooks.ApplicationHooks.tearDown(io.cucumber.java.Scenario)</span>
-      <div>Boarding_iso_with_different_set_of_data
-          <div class="row mb-3"><div class="col-md-3">
-    <img data-featherlight='../embedded3.png' src="../embedded3.png">
-    
-    </div></div>
-</div>
+                    <span>When user files the processor details from given sheetname "rj" and rownumber 0</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user click the next button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When user select all the modules</span>
       <div>
       </div>
                   </div>
@@ -793,26 +353,26 @@ Session ID: a380f329cf147b1568e4ef3a0cf354ab
 </div>
 <div class="test-content-detail"><div class="detail-body"></div></div>
 </div></div>
-<div class="test-wrapper row view exception-view attributes-view">
+<div class="test-wrapper row view category-view attributes-view">
 <div class="test-list">
 <div class="test-list-tools">
-<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
-<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">2</span></a></li></ul>
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
 </div>
 <div class="test-list-wrapper scrollable">
 <ul class="test-list-item">
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log badge-danger'>1</span>
+<span class='badge log pass-bg'>1</span>
 </span>
-<p class="name">org.openqa.selenium.NoSuchElementException</p>
+<p class="name">@sanityTest</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>org.openqa.selenium.NoSuchElementException</h4>
-<span status="fail" class='badge log badge-danger'>1 failed</span>
+<h4>@sanityTest</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -823,59 +383,13 @@ Session ID: a380f329cf147b1568e4ef3a0cf354ab
 </tr>
 </thead>
 <tbody>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>12:23:54 PM</td>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>10:36:47 AM</td>
 <td>
-<a href="#" class="linked" test-id='19' id='24'>Given user is on MerchantManagementPage</a>
+<a href="#" class="linked" test-id='1' id='3'>Boarding iso with different set of data</a>
 <div class="">
-<span class="badge badge-default">Boarding the Merchant Feature.Boarding merchant with different set of data.Given user is on MerchantManagementPage</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>12:24:19 PM</td>
-<td>
-<a href="#" class="linked" test-id='37' id='42'>When User check the today's transactions</a>
-<div class="">
-<span class="badge badge-default">Transactions feature for portal.to verify the transactions details from the portal.When User check the today's transactions</span>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log badge-danger'>1</span>
-</span>
-<p class="name">org.openqa.selenium.ElementClickInterceptedException</p>
-<p class="duration text-sm">1 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>org.openqa.selenium.ElementClickInterceptedException</h4>
-<span status="fail" class='badge log badge-danger'>1 failed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>12:25:21 PM</td>
-<td>
-<a href="#" class="linked" test-id='46' id='66'>And User clicks the next button</a>
-<div class="">
-<span class="badge badge-default">Boarding the ISO Feature.Boarding iso with different set of data.And User clicks the next button</span>
+<span class="badge badge-default">Boarding the ISO Feature.Boarding iso with different set of data</span>
 </div>
 </td>
 </tr>

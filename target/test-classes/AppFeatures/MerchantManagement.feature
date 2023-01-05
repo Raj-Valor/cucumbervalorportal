@@ -23,6 +23,8 @@ Scenario Outline: Boarding merchant with different set of data
 	Examples: 
 		|SheetName|RowNumber|
 		|info|0|
+		
+		
 	
 
 

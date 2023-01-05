@@ -1,5 +1,7 @@
 package stepdefinations;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
@@ -48,20 +50,22 @@ public class TransactionsPageStepDefination {
 
 	}
 
+	
+	
 	@When("To Verify the count")
-	public void to_verify_the_count() throws FileNotFoundException, IOException {
+	public void to_verify_the_count() {
 		transactionsPage.countcheck();
-		transactionsPage.getRowCount();
+		
+		
 	
 	}
 
 	@When("To show the approved tax")
-	public void to_show_the_approved_tax() throws InterruptedException, FileNotFoundException, IOException {
+	public void to_show_the_approved_tax() throws InterruptedException, IOException {
 
-		transactionsPage.filterwitthallTransactiontype();
-		transactionsPage.ExportValidation();
-		
-
+		transactionsPage.toshowapprovedtax();
+		transactionsPage.rowcount();
+	
 	}
 
 }

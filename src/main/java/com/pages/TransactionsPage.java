@@ -1,6 +1,7 @@
 package com.pages;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
@@ -8,6 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +21,7 @@ import org.openqa.selenium.WebElement;
 public class TransactionsPage {
 
 	private WebDriver driver;
-	File folder;
+	
 
 	private By tfilter = By.xpath("//span[contains(text(),'Recent')]");
 	private By muifilter = By.xpath("//button[@type='button']//span//span//i");
@@ -29,7 +33,10 @@ public class TransactionsPage {
 	private By bottomcount = By.xpath("");
 	private By Action = By.xpath("//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-2']//span[@class='MuiButton-label']");
 	private By Export = By.xpath("//span[contains(text(),'Export')]");
-	private By Atax = By.xpath("//input[@name='approvedBox']");
+	private By Atax = By.xpath("//p[@class='MuiTypography-root MuiTypography-body1']");
+	//all
+	
+	private By cardtypes = By.xpath("//button[@name='Card_Brands']//span//span//span[contains(text(),'ALL')]");
 	
 	
 
@@ -43,7 +50,7 @@ public class TransactionsPage {
 		driver.findElement(tfilter).click();
 		List<WebElement> filter = driver.findElements(list);
 		for (WebElement ftype : filter) {
-			if (ftype.getText().equals("Today")) {
+			if (ftype.getText().equals("Yesterday")) {
 				ftype.click();
 				break;
 			}
@@ -58,14 +65,13 @@ public class TransactionsPage {
 		List<WebElement> fil = driver.findElements(list);
 		
 		for (WebElement ftyp : fil) {
-			if (ftyp.getText().equals("Today")) {
+			if (ftyp.getText().equals("Recent")) {
 				ftyp.click();
 				break;
 			}
 
 		}
 		driver.findElement(transtype).click();
-
 		List<WebElement> fill = driver.findElements(list);
 		for (WebElement fty : fill) {
 			if (fty.getText().equals("SALE")) {
@@ -75,9 +81,8 @@ public class TransactionsPage {
 			
 		
 		}
-
-		driver.findElement(trnstaus).click();
 		Thread.sleep(3000);
+		driver.findElement(trnstaus).click();
 		List<WebElement> filstatus = driver.findElements(list);
 		for (WebElement fty : filstatus) {
 			if (fty.getText().equals("Approved")) {
@@ -90,11 +95,7 @@ public class TransactionsPage {
 			
 		}
 		driver.findElement(By.xpath("//span[normalize-space()='Search']")).click();
-		Thread.sleep(3000);
-		boolean b1= driver.findElement(By.xpath("//span[normalize-space()='TransType']")).isDisplayed();
-		System.out.println(b1);//true
-		boolean b2= driver.findElement(By.xpath("//span[normalize-space()='TransStatus']")).isDisplayed();
-		System.out.println(b2);//true
+		
 	}
 
 
@@ -106,122 +107,55 @@ public class TransactionsPage {
 			
 		}
 	}*/ 
-	public void ExportValidation() throws InterruptedException {
-		
-		folder = new File(UUID.randomUUID().toString());
-		folder.mkdir();
-		
-		Map<String, Object> prefs = new HashMap<String, Object>();
-		prefs.put("profile.default_cntent_settings.popups", 0);
-		prefs.put("download.default_directory", folder.getAbsolutePath());
-		
-		Thread.sleep(3000);
+	public void ExportValidation() {
+	
 		driver.findElement(Action).click();
 		driver.findElement(Export).click();
-		
-		File listOfFiles[] = folder.listFiles();
-	
-		
-	
-		
-		for(File file : folder.listFiles())
-		{
-			file.delete();
-		}
-		
-		folder.delete();
 		
 		
 		
 	
 }
 	public void countcheck() {
-		WebElement tcount =driver.findElement(By.xpath("//*[@id=\"app-site\"]/div/div[1]/div[3]/main/div/div[1]/div[1]/div[1]/div/div[2]/div[1]/div/div/span"));
-		String text = tcount.getAttribute("innerHTML");
-		System.out.println(text);
 		
+		String aprvTxnCount = driver.findElement(By.xpath("//*[@id=\"app-site\"]/div/div[1]/div[3]/main/div/div[1]/div[1]/div[1]/div/div[2]/div[1]/div/div/span")).getText();
+		System.out.println("\nVolume count on tile:"+aprvTxnCount);
 		
+		String pnation = driver.findElement(By.xpath("(//p[@class='MuiTypography-root MuiTablePagination-caption MuiTypography-body2 MuiTypography-colorInherit'])[2]")).getText();
 		
-		WebElement vcountt =driver.findElement(By.xpath("//*[@id=\"app-site\"]/div/div[1]/div[3]/main/div/div[1]/div[1]/div[1]/div/div[2]/div[2]/div/div/span"));
-		String textt = vcountt.getAttribute("innerHTML");
-		System.out.println(textt);
-		
+		System.out.println("\npnation count is:"+ pnation);	
 	
-	
+		if(pnation.contains(aprvTxnCount)) {
+			System.out.println("\nPagination and tile is count matched:" + aprvTxnCount);
+		} else {
+			System.out.println("Pagination and tile count is not matched");
+		}
+		
+		
+		
 	}
 	
-	public void getRowCount() throws FileNotFoundException, IOException {
-		
-		WebElement btc = driver.findElement(By.xpath("(//p[@class='MuiTypography-root MuiTablePagination-caption MuiTypography-body2 MuiTypography-colorInherit'])[2]"));
-		String pnation=btc.getAttribute("innerHTML");
-		System.out.println(pnation);
-		
-		
-		
-		
-		
-		
-		/*// String user = System.getProperty("user home"); // user if data in your user profile
-		// String filePath = user + "/Downloads/Test/test.xlsx";
-		String filePath = "C:\\Users\\rajkumar\\Downloads\\TRANSACTION_12_22_2022_5_23_13_.xlsx"; // If download is in IDE project folder
-		FileInputStream fis = new FileInputStream(filePath);
-		XSSFWorkbook workbook = new XSSFWorkbook(fis);
-		XSSFSheet sheet = workbook.getSheet("TRANSACTION_12_22_2022_5_23_13_");
-
-		int rowCount = sheet.getLastRowNum();
-		String rowCountString = Integer.toString(rowCount);
-		workbook.close();
-		return rowCountString;*/
-	}
-	
-	public void toshowapprovedtax() {
-		boolean at=driver.findElement(Atax).isDisplayed();
-		System.out.println(at);
+	public void toshowapprovedtax() throws InterruptedException {
+		Thread.sleep(3000);
 		driver.findElement(Atax).click();
 		
 	}
 	
-	public void filterwitthallTransactiontype() throws InterruptedException {
+	public void rowcount() throws IOException, InterruptedException {
 		Thread.sleep(3000);
-		driver.findElement(muifilter).click();
+		FileInputStream fis = new FileInputStream("C:\\Users\\rajkumar\\Downloads\\TRANSACTION_1_4_2023_4_32_04_AM.xlsx");
+	       XSSFWorkbook workbook = new XSSFWorkbook(fis);
+	       XSSFSheet sheet = workbook.getSheet("TRANSACTION_1_4_2023_4_32_04_AM");
+	       XSSFRow row = sheet.getRow(0);
+	       int colNum = row.getLastCellNum();
+	       System.out.println("Total Number of Columns in the excel is : "+colNum);
+	       int rowNum = sheet.getLastRowNum()+1;
+	       System.out.println("Total Number of Rows in the excel is : "+rowNum);
 		
-		List<WebElement> fil = driver.findElements(list);
-		
-		for (WebElement ftyp : fil) {
-			if (ftyp.getText().equals("ALL")) {
-				ftyp.click();
-				break;
-			}
-
-		}
-		driver.findElement(transtype).click();
-		Thread.sleep(3000);
-		List<WebElement> fill = driver.findElements(list);
-		for (WebElement fty : fill) {
-			if (fty.getText().equals("ALL")) {
-				fty.click();
-				break;
-			}
-			
-		
-		}
-
-		driver.findElement(trnstaus).click();
-		Thread.sleep(3000);
-		List<WebElement> filstatus = driver.findElements(list);
-		for (WebElement fty : filstatus) {
-			if (fty.getText().equals("ALL")) {
-				fty.click();
-				break;
-			}
-
-			
 	}
-		driver.findElement(By.xpath("//span[normalize-space()='Search']")).click();
+
+	
 		
-	
-	
-	}
 }
 
 

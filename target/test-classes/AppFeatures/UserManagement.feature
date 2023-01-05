@@ -4,7 +4,7 @@ Background:
 	Given user is on UserManagementPage 
 		|username|password|
 		|rajkumar+demoadmin@valorpaytech.com|Aadhvik@19|
-		
+	
 	Scenario: to verify the total users count 
 	When User clicks users tile 
 	When User clicks Iso tile 
@@ -12,7 +12,7 @@ Background:
 	When User clicks Merchants tile 
 	When User clicks Operators tile 
 	When User clicks Internal User tile 	
-		
+	@sanityTest
 Scenario Outline: Boarding iso with different set of data 
 
     When user clicks add button 
