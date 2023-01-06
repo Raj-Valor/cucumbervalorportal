@@ -44,8 +44,17 @@ public class vtPageStepDefiation {
 	}
 	
 	@Then("user enter amount")
-	public void user_enter_amount() throws InterruptedException {
-		vtpage.saletransaction();
+	public void user_enter_amount(DataTable dataTable) throws InterruptedException {
+		List<List<String>>TransList=dataTable.asLists(String.class);
+		
+		String sale = TransList.get(0).get(0);
+		String phoNo = TransList.get(1).get(0);
+		
+		vtpage.saletransaction(sale, phoNo);
+		
+		 for(List<String> f : TransList) {
+		    	System.out.println(f);
+	}
 	}
 	 
 	@When("user enters following details")

@@ -31,7 +31,8 @@ public class DriverFactory {
 			else if (browser.equals("edge")) {
 				WebDriverManager.edgedriver().setup();
 				tlDriver.set(new EdgeDriver());
-		} else {
+		} 
+			else {
 			System.out.println("Please pass the correct browser value: " + browser);
 		}
 
