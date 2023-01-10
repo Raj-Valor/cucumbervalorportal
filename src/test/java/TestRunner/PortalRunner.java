@@ -8,13 +8,13 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features= {"src/test/resources/AppFeatures/UserManagement.feature"},
+        features= {"src/test/resources/AppFeatures/vt.feature"},
         glue= {"stepdefinations", "AppHooks"},
        plugin= {"pretty",
     		   "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 
         },  		
-        tags="@sanityTest"
+        tags="@refund"
         )
 
 

@@ -31,6 +31,7 @@ public class LoginStepDefination {
 
 	}
 
+
 	@And("user enters password {string}")
 	public void user_enters_password(String password) {
 		loginPage.enterPassword(password);

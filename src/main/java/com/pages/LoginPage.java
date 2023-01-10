@@ -1,5 +1,6 @@
 package com.pages;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.Alert;
@@ -28,7 +29,7 @@ public class LoginPage {
 	private By sub = By.id("submitBtn");
 	private By MSYyes = By.xpath("//input[@id='idSIButton9']");
 	private By DL = By.id("username");
-
+	
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -42,7 +43,7 @@ public class LoginPage {
 	}
 
 	public void continueButton() {
-
+		
 		driver.findElement(continueButton).click();
 	}
 
@@ -70,37 +71,69 @@ public class LoginPage {
 
 	public void passwordLinkfromEmail() throws InterruptedException {
 
-		/*
-		 * rajkumar@valorpaytech.com Welcome1#
-		 */
+		
+	
+		 
 
 		driver.get("https://outlook.office.com");
-		Thread.sleep(3000);
-		/*
-		 * driver.findElement(emailcre).sendKeys("rajkumar@valorpaytech.com");
-		 * driver.findElement(NxtEm).click(); Thread.sleep(3000);
-		 */
-		/*
-		 * driver.findElement(DL).clear();
-		 * driver.findElement(DL).sendKeys("rajkumar@valorpaytech.com");
-		 */
-		/*
-		 * Actions act = new Actions(driver);
-		 * 
-		 * act.sendKeys(Keys.TAB).build().perform();
-		 * driver.findElement(pass).sendKeys("Welcome1#");
-		 * driver.findElement(sub).click(); driver.findElement(MSYyes).click();
-		 */
+		Thread.sleep(6000);
+		driver.navigate().refresh();
+		Thread.sleep(6000);
+		  /*driver.findElement(emailcre).sendKeys("rajkumar@valorpaytech.com");
+		  driver.findElement(NxtEm).click(); 
+		  Thread.sleep(3000);*/
+		 
+		
+		 /*driver.findElement(DL).clear();
+		  driver.findElement(DL).sendKeys("rajkumar@valorpaytech.com");*/
+		 
+		
+		 /*Actions act = new Actions(driver);
+		 
+		 act.sendKeys(Keys.TAB).build().perform();
+		 driver.findElement(pass).sendKeys("Welcome1#");
+		 driver.findElement(sub).click(); 
+		 driver.findElement(MSYyes).click();*/
+		 
+		 
 
 	}
 
 	public void clickEmail() throws InterruptedException {
+	
+			
+		Thread.sleep(9000);
+		wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[contains(text(),'Reset Password Request')])[1]")));
+		driver.findElement(By.xpath("(//span[contains(text(),'Reset Password Request')])[1]")).click();
+		
+		try {
+			Thread.sleep(3000);
+		wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//u[normalize-space()='Click Here For Reset Password'])[1]")));
+		driver.findElement(By.xpath("(//u[normalize-space()='Click Here For Reset Password'])[1]")).click();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
+		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
+	      //switch to new tab
+	      driver.switchTo().window(newTb.get(1));
+	      System.out.println("Page title of new tab: " + driver.getTitle());
+	      Thread.sleep(9000);
+		driver.findElement(By.xpath("(//input[@type=\"password\"])[1]")).sendKeys("Aadhvik@07");
+		driver.findElement(By.xpath("(//input[@type=\"password\"])[2]")).sendKeys("Aadhvik@07");
+		driver.findElement(By.xpath("(//span[contains(text(),'Confirm')])[3]")).click();
 
-		List<WebElement> fli = driver.findElements(By.xpath(
-				"//*[@id=\"MainModule\"]/div/div/div[3]/div/div[3]/div[1]/div[1]/div[1]/div/div[3]/div/div[1]/i/span/i"));
+		 /* driver.switchTo().window(newTb.get(0));
+	      System.out.println("Page title of parent window: " + driver.getTitle()); */
+	      
+		/*List<WebElement> fli = driver.findElements(By.xpath("//ul[@class='ms-ContextualMenu-list is-open Oa3_f list-319']/li"));
+		Thread.sleep(3000);
 		for (WebElement ftt : fli) {
 
-			if (ftt.getText().contains("Unread")) {
+			if (ftt.getText().equals("Unread")) {
 				ftt.click();
 				break;
 			}
@@ -114,14 +147,14 @@ public class LoginPage {
 					break;
 				}
 				driver.findElement(By.xpath(
-						"//*[@id=\\\"ReadingPaneContainerId\\\"]/div/div/div/div[2]/div/div/div[1]/div/div/div/div/div[3]/div/div/div/div/table/tbody/tr/td/table/tbody/tr[3]/td/h3/a"))
+						"//u[contains(text()'Click Here For Reset Password')]"))
 						.click();
 
-			}
+			}*/
 
 		}
 
-	}
+	
 
 	public HomePage doLogin(String un, String pwd) throws InterruptedException {
 		driver.findElement(email).sendKeys(un);

@@ -12,8 +12,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.qa.util.Util;
 
-
-
 public class vtPage {
 
 	private WebDriver driver;
@@ -27,6 +25,9 @@ public class vtPage {
 	private By process = By.xpath("//span[contains(text(),'Process')]");
 	private By summary = By.xpath("//*[@id=\"body\"]/div[2]/div[3]/div/div[3]/button[2]/span[1]/span");
 	private By close = By.xpath("//span[contains(text(),'Close')]");
+	private By Auth = By.xpath("//span[contains(text(),'Authorization')]");
+	private By refund = By.xpath("//span[contains(text(),'Refund')]");
+	
 
 	public vtPage(WebDriver driver) {
 		this.driver = driver;
@@ -43,7 +44,7 @@ public class vtPage {
 	public void saletransaction(String amot, String PhNo) {
 		driver.findElement(sale).sendKeys(amot);
 		driver.findElement(phoNo).sendKeys(PhNo);
-		
+
 	}
 
 	public void sale(String cn, String cv, String mm, String c) {
@@ -55,7 +56,7 @@ public class vtPage {
 
 	public void clickProcess() throws InterruptedException {
 		Thread.sleep(3000);
-		
+
 		Actions processdown = new Actions(driver);
 		processdown.moveToElement(driver.findElement(process)).perform();
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
@@ -69,12 +70,20 @@ public class vtPage {
 	}
 
 	public void close() throws InterruptedException {
-		
+
 		Thread.sleep(3000);
 		driver.findElement(close).click();
-	
-		}
 
-		
+	}
+
+	public void Auth() throws InterruptedException {
+		Thread.sleep(3000);
+		driver.findElement(Auth).click();
+	}
+
+	public void refund() throws InterruptedException {
+		Thread.sleep(3000);
+		driver.findElement(refund).click();
+	}
 
 }

@@ -29,7 +29,7 @@ Scenario: Forget password link for valid user
 	
 Scenario: Forget password link for invalid user
 	Given user is on loginpage
-	When user enters the invalid username "raj"
+	When user enters the invalid username "raj+demoadmin@valorpaytech.com"
 	And user click submit button		
 	
 	
