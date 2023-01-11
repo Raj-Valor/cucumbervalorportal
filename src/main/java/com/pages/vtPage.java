@@ -1,16 +1,10 @@
 package com.pages;
 
-import java.util.List;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import com.qa.util.Util;
 
 public class vtPage {
 
@@ -18,6 +12,7 @@ public class vtPage {
 	private By salerbutn = By.name("transaction");
 	private By sale = By.name("amount");
 	private By phoNo = By.name("phoneNo");
+	private By Email = By.name("email");
 	private By num = By.name("number");
 	private By cvv = By.name("cvc");
 	private By my = By.name("expiry");
@@ -27,7 +22,14 @@ public class vtPage {
 	private By close = By.xpath("//span[contains(text(),'Close')]");
 	private By Auth = By.xpath("//span[contains(text(),'Authorization')]");
 	private By refund = By.xpath("//span[contains(text(),'Refund')]");
-	
+	private By einvoice = By.xpath("//span[contains(text(),'E-Invoice')]");
+	private By paynow = By.xpath("//span[@title='PayNowLink']//input[@type='checkbox']");
+	private By flexible = By.xpath("(//span[contains(@title,'PayNowLink')])[2]/span[1]");
+	private By nExp = By.xpath("(//span[contains(@title,'PayNowLink')])[2]/span[2]");
+	private By Sendinvoice = By.xpath(
+			"//div[@class='MuiGrid-root saveButtonVoid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-12']");
+	private By oklink = By.xpath("//span[contains(text(),'OK')]");
+	private By cash = By.xpath("//span[contains(text(),'Cash')]");
 
 	public vtPage(WebDriver driver) {
 		this.driver = driver;
@@ -41,9 +43,10 @@ public class vtPage {
 
 	}
 
-	public void saletransaction(String amot, String PhNo) {
+	public void saletransaction(String amot, String PhNo, String em) {
 		driver.findElement(sale).sendKeys(amot);
 		driver.findElement(phoNo).sendKeys(PhNo);
+		driver.findElement(Email).sendKeys(em);
 
 	}
 
@@ -84,6 +87,47 @@ public class vtPage {
 	public void refund() throws InterruptedException {
 		Thread.sleep(3000);
 		driver.findElement(refund).click();
+	}
+
+	public void mailReader() {
+
+		driver.get("https://outlook.office365.com/mail/");
+
+	}
+
+	public void invoice() throws InterruptedException {
+		Thread.sleep(3000);
+		driver.findElement(einvoice).click();
+		driver.findElement(paynow).click();
+
+		Thread.sleep(3000);
+	}
+
+	public void sendinvoice() throws InterruptedException {
+		driver.findElement(flexible).click();
+		Thread.sleep(3000);
+		driver.findElement(Sendinvoice).click();
+		driver.findElement(process).click();
+		Thread.sleep(3000);
+		
+	
+
+	}
+	public void clickOk() throws InterruptedException {
+		Thread.sleep(3000);
+		driver.findElement(oklink).click();
+	}
+	
+	public void nexp() {
+		driver.findElement(einvoice).click();
+		driver.findElement(paynow).click();
+		
+		
+	}
+	
+	public void cash() throws InterruptedException {
+		Thread.sleep(3000);
+		driver.findElement(cash).click();
 	}
 
 }

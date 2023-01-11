@@ -45,8 +45,9 @@ public class vtPageStepDefiation {
 
 		String sale = TransList.get(0).get(0);
 		String phoNo = TransList.get(1).get(0);
+		String Email = TransList.get(2).get(0);
 
-		vtpage.saletransaction(sale, phoNo);
+		vtpage.saletransaction(sale, phoNo, Email);
 
 		for (List<String> f : TransList) {
 			System.out.println(f);
@@ -98,8 +99,9 @@ public class vtPageStepDefiation {
 
 		String sale = TransList.get(0).get(0);
 		String phoNo = TransList.get(1).get(0);
+		String Email = TransList.get(2).get(0);
 
-		vtpage.saletransaction(sale, phoNo);
+		vtpage.saletransaction(sale, phoNo, Email);
 
 		for (List<String> f : TransList) {
 			System.out.println(f);
@@ -149,8 +151,9 @@ public class vtPageStepDefiation {
 
 		String sale = TransList.get(0).get(0);
 		String phoNo = TransList.get(1).get(0);
+		String Email = TransList.get(2).get(0);
 
-		vtpage.saletransaction(sale, phoNo);
+		vtpage.saletransaction(sale, phoNo, Email);
 
 		for (List<String> f : TransList) {
 			System.out.println(f);
@@ -182,11 +185,61 @@ public class vtPageStepDefiation {
 	@Then("clicks the summary details")
 	public void clicks_the_summary_details() throws InterruptedException {
 		vtpage.summaryclick();
+		
 	}
 
 	@Then("clicks the close")
 	public void clicks_the_close() throws InterruptedException {
 		vtpage.close();
 	}
+	
+	@When("user clicks Einvoice radio button")
+	public void user_clicks_einvoice_radio_button() throws InterruptedException {
+	   vtpage.invoice();
+	}
+
+	@Then("user enters amount for paynowlink")
+	public void user_enters_amount_for_paynowlink(DataTable dataTable) throws InterruptedException {
+		
+			List<List<String>> TransList = dataTable.asLists(String.class);
+
+			String sale = TransList.get(0).get(0);
+			String phoNo = TransList.get(1).get(0);
+			String Email = TransList.get(2).get(0);
+
+			vtpage.saletransaction(sale, phoNo, Email);
+			for (List<String> f : TransList) {
+				System.out.println(f);
+			}
+	   
+	}
+	@Then("click send E-invoice")
+	public void click_send_e_invoice() throws InterruptedException {
+	   vtpage.sendinvoice();
+	   vtpage.clickOk();
+	  
+	}
+
+	@When("user clicks cash radio button")
+	public void user_clicks_cash_radio_button() throws InterruptedException {
+	    vtpage.cash();
+	}
+
+	@Then("user enters amount for cash")
+	public void user_enters_amount_for_cash(DataTable dataTable) throws InterruptedException {
+		List<List<String>> TransList = dataTable.asLists(String.class);
+
+		String sale = TransList.get(0).get(0);
+		String phoNo = TransList.get(1).get(0);
+		String Email = TransList.get(2).get(0);
+
+		vtpage.saletransaction(sale, phoNo, Email);
+		for (List<String> f : TransList) {
+			System.out.println(f);
+		}
+		vtpage.clickProcess();
+		vtpage.clickOk();
+	}
+
 
 }
